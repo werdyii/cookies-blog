@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CookiesBlog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1><%= link_to "Rails Blog", root_path %> &mdash; Články o Ruby on Rails</h1>
+  </div>
+
+	<%= yield %>
+</div>
+<div class="footer">learn2code :werdyii </div>
+
+</body>
+</html>

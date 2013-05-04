@@ -1,0 +1,33 @@
+<h2><%= link_to @post.title, @post %></h2>
+<h3>Nový komentar</h3>
+<%= form_for [@post,@coment] do |f| %>
+
+	<ul class="errors">
+	<% @coment.errors.full_messages.each do |msg| %>
+	  <li><%= msg %></li>
+	<% end %>
+	</ul>	
+	
+	<table>
+		<tr>
+			<td><%= f.label :author %></td>
+			<td><%= f.text_field :author  %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :email %></td>
+			<td><%= f.text_field :email  %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag :remember_me %></td>
+			<td><%= check_box_tag :remember_me, 1, :checked => true %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :coment %></td>
+			<td><%= f.text_area :coment , :size => "60x5" %></td>
+		</tr>
+		<tr>
+			<td><%= link_to "Späť", @post %></td>
+			<td><%= f.submit "Uložiť" %></td>
+		</tr>
+	</table>    
+<% end %>

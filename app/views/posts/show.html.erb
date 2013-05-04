@@ -1,0 +1,23 @@
+<h2><%= @post.title %></h2>
+<p><%= simple_format @post.body %></p>
+
+<h3>Komentáre:</h3>
+<nav class="commntar">
+	<%= link_to "Pridaj komentár", new_post_coment_path(@post)  %>
+</nav>
+<ul class="coments">
+	<% @coments.each do |coment| %>
+	<li>
+		<span><%= coment.author %> 
+			<small> 
+			( <%= mail_to coment.email, coment.email.sub("@","(at)") %> ) 
+				<%= coment.created_at.strftime "%e. %-d. %Y %H:%M:%S" %> 
+			</small>
+		</span>
+		<p><%= simple_format coment.coment %></p>
+	</li>
+	<% end %>
+</ul>
+<nav>
+	<%= link_to "Späť", root_path %>
+</nav>
