@@ -19,7 +19,7 @@
 		</tr>
 		<tr>
 			<td><%= label_tag :remember_me %></td>
-			<td><%= check_box_tag :remember_me, 1, :checked => true %></td>
+			<td><%= check_box_tag :remember_me, 1, cookies[:author] %></td>
 		</tr>
 		<tr>
 			<td><%= f.label :coment %></td>

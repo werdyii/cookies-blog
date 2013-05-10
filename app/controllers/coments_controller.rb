@@ -13,26 +13,23 @@ class ComentsController < ApplicationController
   	@post = Post.find params[:post_id]
   	@coment = @post.coments.build params[:coment]
 
-  	# FIXME toto nefunguje vypiše to rake notes
   	if @coment.save
-
-      if params[:remember_me]
-        cookies[:remember_me] = 1
-        cookies[:author] = @coment.author
-        cookies[:email] = @coment.email
-      else
-        cookies.delete :remember_me
-        cookies.delete :author
-        cookies.delete :email
-      end
-  		
+      cookies_save_if_checked
       redirect_to @post
-		
     else
 			render :new
+  	end
+  end
 
-		end
-
+  private
+  def cookies_save_if_checked
+    if params[:remember_me]
+      cookies[:author] = @coment.author
+      cookies[:email] = @coment.email
+    else
+      cookies.delete :author
+      cookies.delete :email
+    end
   end
 
 end
