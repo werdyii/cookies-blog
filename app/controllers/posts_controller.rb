@@ -5,6 +5,6 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find params[:id]
-  	@coments = @post.coments
+  	@coments = @post.coments.arrange
   end
 end

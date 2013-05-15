@@ -51,7 +51,7 @@ a {
 	  margin: 20px 25px;
 	  overflow: hidden;
 	  list-style: none;
-		
+
 		span{
 		  background: #E1E1E1;
 		  border-bottom: 1px solid #CCC;
@@ -66,7 +66,7 @@ a {
 	  	padding:10px;
 	  	margin-bottom: 0px;
 	  }
-	}	
+	}
 	input, textarea {
 		background: #F5F6F9;
 		border-radius: 5px;
@@ -101,6 +101,31 @@ a {
 	  list-style: none;
 	  padding: 3px 20px;
 	}
+  .coments{
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px auto;
+
+    .coment.root{
+      border: 1px solid white;
+      padding:10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      span{
+        color: darkgray;
+        font-style: italic;
+        border-bottom: 1px solid white;
+        display: block;
+        padding-bottom:5px;
+        padding-left: 20px;
+        margin-bottom: 5px;
+      }
+    }
+    .coment.nested{
+      margin-left: 20px;
+    }
+  }
 }
 .footer{
   width: 920px;
