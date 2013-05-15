@@ -5,19 +5,13 @@
 <nav class="commntar">
 	<%= link_to "Pridaj komentár", new_post_coment_path(@post)  %>
 </nav>
-<ul class="coments">
-	<% @coments.each do |coment| %>
-	<li>
-		<span><%= coment.author %> 
-			<small> 
-			( <%= mail_to coment.email, coment.email.sub("@","(at)") %> ) 
-				<%= coment.created_at.strftime "%e. %-d. %Y %H:%M:%S" %> 
-			</small>
-		</span>
-		<p><%= simple_format coment.coment %></p>
-	</li>
+<div class="coments">
+	<%if @coments.any? %>
+		<%= nested_comnts @coments  %>
+	<% else %>
+		Tento článok ešte nikto nekomentoval.
 	<% end %>
-</ul>
+</div>
 <nav>
 	<%= link_to "Späť", root_path %>
 </nav>

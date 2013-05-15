@@ -1,7 +1,7 @@
 <h2><%= link_to @post.title, @post %></h2>
 <h3>Nový komentar</h3>
 <%= form_for [@post,@coment] do |f| %>
-
+	<%= f.hidden_field :parent_id %>
 	<ul class="errors">
 	<% @coment.errors.full_messages.each do |msg| %>
 	  <li><%= msg %></li>

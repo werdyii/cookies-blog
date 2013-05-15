@@ -1,11 +1,14 @@
 class ComentsController < ApplicationController
-  
+
   def new
   	@post = Post.find params[:post_id]
     if cookies[:remember_me]
-  	  @coment = @post.coments.new(:author => cookies[:author],:email => cookies[:email])
+  	  @coment = @post.coments.new(
+        :parent_id => params[:parent_id],
+        :author => cookies[:author],
+        :email => cookies[:email])
     else
-      @coment = @post.coments.new
+      @coment = @post.coments.new(:parent_id => params[:parent_id])
     end
   end
 

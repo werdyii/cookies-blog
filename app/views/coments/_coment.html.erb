@@ -1,0 +1,12 @@
+<div class="coment root">
+  <span><%= coment.author %>
+    <small>
+    ( <%= mail_to coment.email, coment.email.sub("@","(at)") %> )
+      <%= coment.created_at.strftime "%e. %-d. %Y %H:%M:%S" %>
+    </small>
+  </span>
+  <%= simple_format coment.coment %>
+  <nav>
+    <%= link_to "Reply", new_post_coment_path(@post, :parent_id => coment.id) %>
+  </nav>
+</div>
